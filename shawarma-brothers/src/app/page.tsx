@@ -4,10 +4,7 @@ import { Location } from "@/components/Location";
 import ShawarmaHero from '@/components/ShawarmaHero'
 import MenuGrid from '@/components/MenuGrid'
 import GiftCardPromo from '@/components/GiftCardPromo'
-
 import { About } from "@/components/About";
-import ShawarmaHero from "@/components/ShawarmaHero";
-import MenuGrid from "@/components/MenuGrid";
 
 export default function Home() {
   return (
