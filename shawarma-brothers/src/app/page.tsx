@@ -3,6 +3,7 @@ import { ContactForm } from "@/components/ContactForm";
 import { Location } from "@/components/Location";
 import ShawarmaHero from '@/components/ShawarmaHero'
 import MenuGrid from '@/components/MenuGrid'
+import GiftCardPromo from '@/components/GiftCardPromo'
 
 
 export default function Home() {
@@ -10,6 +11,7 @@ export default function Home() {
     <main>
       <ShawarmaHero />
       <MenuGrid />
+      <GiftCardPromo />
       <div className="flex flex-col items-center justify-center min-h-screen p-8">
         <Location />
         <h1 className="text-2xl font-bold mb-4">Contact Us</h1>
