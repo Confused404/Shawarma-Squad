@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { MessageBoxComponent } from "@/components/MessageBox";
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -42,9 +43,36 @@ export function ContactForm() {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
-    // Here you would typically send the form data to your server
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    try {
+      const response = await fetch(
+        `https://formspree.io/f/${process.env.NEXT_PUBLIC_FORM_ID}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(values),
+        }
+      );
+      if (response.ok) {
+        MessageBoxComponent({
+          type: "success",
+          title: "Contact Submitted",
+          message: "Your contact information has been successfully submitted.",
+        });
+        form.reset();
+      } else {
+        MessageBoxComponent({
+          type: "error",
+          title: "Submission Failed",
+          message:
+            "There was an error submitting your contact information. Please try again.",
+        });
+      }
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   return (

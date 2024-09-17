@@ -1,15 +1,15 @@
 // Update the import statements
 import { ContactForm } from "@/components/ContactForm";
 import { Location } from "@/components/Location";
-import ShawarmaHero from '@/components/ShawarmaHero'
-import MenuGrid from '@/components/MenuGrid'
-import GiftCardPromo from '@/components/GiftCardPromo'
+import Hero from "@/components/Hero";
+import MenuGrid from "@/components/MenuGrid";
+import GiftCardPromo from "@/components/GiftCardPromo";
 import { About } from "@/components/About";
 
 export default function Home() {
   return (
     <main>
-      <ShawarmaHero />
+      <Hero />
       <MenuGrid />
       <GiftCardPromo />
       <About />

@@ -10,11 +10,9 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="space-y-4">
             <h3 className="text-xl font-semibold text-amber-800">
-              Shawarma Delight
+              Shawarma Brothers
             </h3>
-            <p className="text-amber-700">
-              Serving the best shawarma in town since 2010.
-            </p>
+            <p className="text-amber-700">Insert restaurant motto here</p>
           </div>
           <div className="space-y-4">
             <h4 className="text-lg font-medium text-amber-800">Quick Links</h4>
@@ -39,31 +37,24 @@ export default function Footer() {
             </h4>
             <div className="flex space-x-4">
               <Link
-                href="#"
+                href="https://www.facebook.com/shawarmabrothersportagetrailcrossing/"
                 className="text-amber-700 hover:text-amber-600 transition duration-150 ease-in-out"
               >
                 <Facebook size={24} />
                 <span className="sr-only">Facebook</span>
               </Link>
               <Link
-                href="#"
+                href="https://www.instagram.com/explore/locations/551667251694193/shawarma-brothers/"
                 className="text-amber-700 hover:text-amber-600 transition duration-150 ease-in-out"
               >
                 <Instagram size={24} />
                 <span className="sr-only">Instagram</span>
               </Link>
-              <Link
-                href="#"
-                className="text-amber-700 hover:text-amber-600 transition duration-150 ease-in-out"
-              >
-                <Twitter size={24} />
-                <span className="sr-only">Twitter</span>
-              </Link>
             </div>
           </div>
         </div>
         <div className="mt-8 pt-4 border-t border-amber-200 text-center text-amber-700">
-          <p>&copy; {currentYear} Shawarma Delight. All rights reserved.</p>
+          <p>&copy; {currentYear} Shawarma Brothers. All rights reserved.</p>
         </div>
       </div>
     </footer>
