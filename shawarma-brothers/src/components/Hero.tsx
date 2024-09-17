@@ -25,9 +25,8 @@ export default function Hero() {
       {images.map((src, index) => (
         <div
           key={src}
-          className={`absolute inset-0 transition-opacity duration-1000 ${
-            index === currentImageIndex ? "opacity-100" : "opacity-0"
-          }`}
+          className={`absolute inset-0 transition-opacity duration-1000 ${index === currentImageIndex ? "opacity-100" : "opacity-0"
+            }`}
         >
           <Image
             src={src}
@@ -46,9 +45,11 @@ export default function Hero() {
           <p className="text-xl md:text-2xl text-white mb-8">
             Falafel ● Gyro ● Mid-East Rotisserie
           </p>
-          <button className="bg-amber-500 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-amber-600 transition duration-300">
-            Order Now
-          </button>
+          <a href="https://www.doordash.com/store/shawarma-brothers-cuyahoga-falls-25010130/">
+            <button className="bg-amber-500 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-amber-600 transition duration-300">
+              Order Now
+            </button>
+          </a>
         </div>
       </div>
     </section>
