@@ -14,11 +14,11 @@ interface MessageBoxProps {
   onClose?: () => void;
 }
 
-export function MessageBoxComponent({
+export function MessageBox({
   type,
   title,
   message,
-  duration = 5000,
+  duration = 10000,
   onClose,
 }: MessageBoxProps) {
   const [isVisible, setIsVisible] = useState(true);
