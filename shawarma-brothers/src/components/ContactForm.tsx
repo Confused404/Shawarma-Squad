@@ -71,6 +71,7 @@ export function ContactForm() {
         });
         form.reset();
       } else {
+        console.log("Form ID:", process.env.NEXT_PUBLIC_FORM_ID);
         setMessageBox({
           type: "error",
           title: "Submission Failed",

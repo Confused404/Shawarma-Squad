@@ -4,9 +4,9 @@ import { Button } from "@/components/ui/button"
 export default function GiftCardPromo() {
     return (
         <div className="bg-amber-50 py-16">
-            <div className="container mx-auto px-4">
-                <div className="flex flex-col md:flex-row items-center justify-between">
-                    <div className="md:w-1/2 mb-8 md:mb-0">
+            <div className="container mx-auto px-[15px] md:px-[60px]">
+                <div className="flex flex-col md:flex-row items-center justify-between md:space-x-12">
+                    <div className="md:w-1/2 mb-12 md:mb-0">
                         <h2 className="text-amber-600 text-xl font-semibold mb-2">SHAWARMA DELIGHT GIFT CARDS</h2>
                         <h3 className="text-4xl md:text-5xl font-bold text-amber-900 mb-4">
                             THE PERFECT GIFT FOR SHAWARMA LOVERS
