@@ -36,13 +36,10 @@ export function Location() {
         <Card className="bg-white shadow-lg overflow-hidden">
           <CardContent className="p-0">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.2412648718453!2d-73.98784892404069!3d40.74844097138558!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9b3117469%3A0xd134e199a405a163!2sEmpire%20State%20Building!5e0!3m2!1sen!2sus!4v1686321046436!5m2!1sen!2sus"
-              width="100%"
-              height="400"
-              style={{ border: 0 }}
-              allowFullScreen
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3004.4270364740973!2d-81.50712948822652!3d41.14703227121187!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x883127ed59113679%3A0xf2060c3c16e78aa!2sShawarma%20Brothers!5e0!3m2!1sen!2sus!4v1726624408011!5m2!1sen!2sus"
+              width="600"
+              height="450"
               loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
             ></iframe>
           </CardContent>
         </Card>

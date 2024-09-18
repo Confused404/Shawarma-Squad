@@ -46,7 +46,7 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact-us" className="px-4 md:px-8 py-12 ">
+      <section id="contact-us" className="px-4 md:px-8 py-12 gh">
         <h2 className="text-3xl font-bold text-amber-800 text-center mb-8">
           Contact Us
         </h2>
