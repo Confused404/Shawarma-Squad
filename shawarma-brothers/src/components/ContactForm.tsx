@@ -63,7 +63,6 @@ export function ContactForm() {
       );
 
       if (response.ok) {
-        console.log("WEEEEEEEEEEE SENT ITTTTTTTTT");
         setMessageBox({
           type: "success",
           title: "Contact Submitted",

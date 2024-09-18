@@ -18,7 +18,7 @@ export function Location() {
           <CardContent className="space-y-4">
             <div className="flex items-center space-x-2">
               <MapPin className="text-amber-600" />
-              <p>123 Shawarma Street, Foodville, FC 12345</p>
+              <p>1808 Portage Trail, Cuyahoga Falls, OH, United States, Ohio</p>
             </div>
             <div className="flex items-center space-x-2">
               <Clock className="text-amber-600" />
@@ -26,7 +26,7 @@ export function Location() {
             </div>
             <div className="flex items-center space-x-2">
               <Phone className="text-amber-600" />
-              <p>(555) 123-4567</p>
+              <p>(234) 334-3996</p>
             </div>
             <Button className="bg-amber-600 hover:bg-amber-700 mt-4">
               Get Directions
