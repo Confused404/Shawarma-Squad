@@ -23,7 +23,7 @@ export function Reviews() {
   }, []);
 
   return (
-    <Card className="w-full max-w-4xl mx-auto bg-amber-50 shadow-lg">
+    <Card className="w-full max-w-4xl mx-auto bg-amber-50 dark:bg-black shadow-lg">
       <CardHeader>
         <CardTitle className="text-3xl font-bold text-amber-800 text-center">
           What Our Customers Say

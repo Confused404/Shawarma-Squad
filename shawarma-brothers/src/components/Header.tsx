@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
+import ModeToggle from "./ui/modetoggle";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -18,12 +19,13 @@ export default function Header() {
   ];
 
   return (
-    <header className="bg-amber-100 shadow-md fixed top-0 left-0 w-full z-50">
+    <header className="bg-amber-100 dark:bg-black shadow-md fixed top-0 left-0 w-full z-50 h-14">
       <div className="container mx-auto px-4 py-8 flex justify-between items-center px-[15px] md:px-[60px]">
         <Link href="/" className="flex items-center space-x-2">
           <span className="text-3xl font-bold text-amber-800">
             Shawarma Brothers
           </span>
+          
         </Link>
 
         {/* Desktop Navigation */}
@@ -37,7 +39,9 @@ export default function Header() {
               {item.name}
             </Link>
           ))}
+          <ModeToggle></ModeToggle>
         </nav>
+       
 
         {/* Mobile Menu Button */}
         <button onClick={toggleMenu} className="md:hidden text-amber-900">
@@ -64,6 +68,7 @@ export default function Header() {
                 {item.name}
               </Link>
             ))}
+            <ModeToggle></ModeToggle>
           </nav>
         </div>
       )}

@@ -6,7 +6,7 @@ import { Badge } from "@/components/ui/badge";
 
 export function About() {
   return (
-    <div className="bg-amber-50 py-12"> {/* Keep the original background and top/bottom padding */}
+    <div className="bg-amber-50 dark:bg-black py-12"> {/* Keep the original background and top/bottom padding */}
       <div className="container mx-auto px-[15px] md:px-[60px]"> {/* Matching the padding from MenuGrid */}
         <h1 className="text-4xl font-bold mb-8 text-amber-600">
           About Shawarma Delight
@@ -21,13 +21,13 @@ export function About() {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="mb-4">
+                <p className="mb-4 dark:text-black">
                   Founded in 2010, Shawarma Delight has been serving the most
                   authentic and delicious shawarma in town for over a decade. Our
                   journey began with a simple goal: to bring the rich flavors of
                   Middle Eastern cuisine to our local community.
                 </p>
-                <p>
+                <p >
                   What started as a small family-owned shop has now grown into a
                   beloved establishment, thanks to our commitment to quality
                   ingredients, traditional recipes, and exceptional customer
@@ -55,8 +55,8 @@ export function About() {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="mb-4">At Shawarma Delight, we're committed to:</p>
-              <ul className="list-disc list-inside space-y-2">
+              <p className="mb-4 dark:text-black">At Shawarma Delight, we're committed to:</p>
+              <ul className="list-disc list-inside space-y-2 dark:text-black">
                 <li>Using only the freshest, highest-quality ingredients</li>
                 <li>Preparing our meats and vegetables daily</li>
                 <li>Offering a variety of options for different dietary needs</li>
@@ -84,7 +84,7 @@ export function About() {
               <Badge
                 key={index}
                 variant="outline"
-                className="p-4 text-center text-amber-600 border-amber-600"
+                className="p-4 text-center text-amber-600 border-amber-600 hover:bg-amber-800 hover:text-amber"
               >
                 {item}
               </Badge>

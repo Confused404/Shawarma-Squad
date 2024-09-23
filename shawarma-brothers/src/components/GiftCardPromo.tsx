@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button"
 
 export default function GiftCardPromo() {
     return (
-        <div className="bg-amber-50 py-16">
+        <div className="bg-amber-50 dark:bg-black py-16">
             <div className="container mx-auto px-[15px] md:px-[60px]">
                 <div className="flex flex-col md:flex-row items-center justify-between md:space-x-12">
                     <div className="md:w-1/2 mb-12 md:mb-0">
