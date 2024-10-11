@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import twoPeopleSmiling from "../pictures/twopeopleSmiling.jpg";
 
 export function About() {
   return (
@@ -17,14 +18,14 @@ export function About() {
         </h1>
         <div className="grid md:grid-cols-2 gap-8 mb-12">
           <div>
-            <Card className="bg-white shadow-lg h-full">
+            <Card className="bg-white shadow-lg h-full dark:bg-black">
               <CardHeader>
                 <CardTitle className="text-2xl font-bold text-amber-600">
                   Our Story
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="mb-4 dark:text-black">
+                <p className="mb-4">
                   Founded in 2010, Shawarma Delight has been serving the most
                   authentic and delicious shawarma in town for over a decade.
                   Our journey began with a simple goal: to bring the rich
@@ -39,28 +40,27 @@ export function About() {
               </CardContent>
             </Card>
           </div>
-          <div className="relative h-[300px] md:h-auto">
+          <div className="relative h-[300px] md:h-auto ">
             <Image
-              src="/placeholder.svg?height=400&width=600"
+              src={twoPeopleSmiling}
               alt="Shawarma preparation"
               layout="fill"
               objectFit="cover"
               className="rounded-lg shadow-lg"
+              objectPosition=" 1px 20%"
             />
           </div>
         </div>
         <div className="mb-12">
-          <Card className="bg-white shadow-lg">
+          <Card className="bg-white shadow-lg dark:bg-black">
             <CardHeader>
               <CardTitle className="text-2xl font-bold text-amber-600">
                 Our Commitment
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="mb-4 dark:text-black">
-                At Shawarma Delight, were committed to:
-              </p>
-              <ul className="list-disc list-inside space-y-2 dark:text-black">
+              <p className="mb-4 ">At Shawarma Delight, we're committed to:</p>
+              <ul className="list-disc list-inside space-y-2 ">
                 <li>Using only the freshest, highest-quality ingredients</li>
                 <li>Preparing our meats and vegetables daily</li>
                 <li>

@@ -3,10 +3,11 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 
+
+
 const images = [
-  "/placeholder.svg?height=600&width=1200",
-  "/placeholder.svg?height=600&width=1200",
-  "/placeholder.svg?height=600&width=1200",
+  "/src/pictures/shawarmaBrothersBuilding.jpg",
+  "/src/pictures/sandwitch.jpg",
 ];
 
 export default function Hero() {
@@ -22,14 +23,15 @@ export default function Hero() {
 
   return (
     <section className="relative h-[600px] overflow-hidden">
-      {images.map((src, index) => (
-        <div
-          key={src}
-          className={`absolute inset-0 transition-opacity duration-1000 ${index === currentImageIndex ? "opacity-100" : "opacity-0"
-            }`}
-        >
+    {images.map((image, index) => (
+      <div
+        key={image}
+        className={`absolute inset-0 transition-opacity duration-1000 ${
+          index === currentImageIndex ? "opacity-100" : "opacity-0"
+        }`}
+      >
           <Image
-            src={src}
+            src={image}
             alt={`Delicious Shawarma ${index + 1}`}
             layout="fill"
             objectFit="cover"

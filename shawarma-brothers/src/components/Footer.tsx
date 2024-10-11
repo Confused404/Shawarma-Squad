@@ -4,6 +4,13 @@ import { Facebook, Instagram } from "lucide-react";
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
+  const footerItems = [
+    { name: "Menu", href: "#menu" },
+    { name: "Location", href: "#location" },
+    { name: "About", href: "#about" },
+    { name: "Gift Cards", href: "#gift-cards" },
+  ];
+
   return (
     <footer className="bg-amber-100 dark:bg-black border-t border-amber-200">
       <div className="container mx-auto px-4 py-8">
@@ -12,19 +19,19 @@ export default function Footer() {
             <h3 className="text-xl font-semibold text-amber-800">
               Shawarma Brothers
             </h3>
-            <p className="text-amber-700">Insert restaurant motto here</p>
+            <p className="text-amber-700">"The Heart of Shawarma, Wrapped for You."</p>
           </div>
           <div className="space-y-4">
             <h4 className="text-lg font-medium text-amber-800">Quick Links</h4>
             <ul className="space-y-2">
-              {["Menu", "Location", "About", "Gift Cards", "Contact"].map(
+              {footerItems.map(
                 (item) => (
-                  <li key={item}>
+                  <li key={item.name}>
                     <Link
-                      href={`/${item.toLowerCase().replace(" ", "-")}`}
+                      href={item.href}
                       className="text-amber-700 hover:text-amber-600 transition duration-150 ease-in-out"
                     >
-                      {item}
+                      {item.name}
                     </Link>
                   </li>
                 )
