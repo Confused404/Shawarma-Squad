@@ -102,10 +102,19 @@ export default function HomePage() {
   const [selectedCategory, setSelectedCategory] =
     useState<CategoryKey>("Protein");
 
+  // Array of category keys for easy navigation
+  const categoryKeys = Object.keys(categories) as CategoryKey[];
+
+  // Function to go to the next category
+  const goToNextCategory = () => {
+    const currentIndex = categoryKeys.indexOf(selectedCategory);
+    if (currentIndex < categoryKeys.length - 1) {
+      setSelectedCategory(categoryKeys[currentIndex + 1]);
+    }
+  };
+
   // Function to render items based on the selected category
   const renderItems = () => {
-    console.log("Rendering items for category:", selectedCategory);
-    console.log("Items:", categories[selectedCategory]);
     return categories[selectedCategory].map((item: MenuItem) => (
       <div key={item.id} className="menu-item">
         <img src={item.image} alt={item.name} />
@@ -113,7 +122,9 @@ export default function HomePage() {
         <p>{item.description}</p>
         <div className="price-button-container">
           <span>${item.price}</span>
-          <button className="button-28">Select</button>
+          <button className="button-28" onClick={goToNextCategory}>
+            Select
+          </button>
         </div>
       </div>
     ));
@@ -125,23 +136,27 @@ export default function HomePage() {
         Our Menu
       </h1>
       <div className="tabs">
-        {Object.keys(categories).map((category) => (
+        {categoryKeys.map((category) => (
           <button
             key={category}
             className={`tab ${selectedCategory === category ? "active" : ""}`}
-            onClick={() => setSelectedCategory(category as CategoryKey)} // Type assertion here
+            onClick={() => setSelectedCategory(category)}
           >
             {category}
           </button>
         ))}
       </div>
 
-      <div className="items">{renderItems()}</div>
-      {/* <div className="items" key={selectedCategory}>
-  {renderItems()}
-</div> */}
-
-      <button className="next-button">→</button>
+      <div className="items" key={selectedCategory}>
+        {renderItems()}
+      </div>
+      <button
+        className="next-button button-28"
+        onClick={goToNextCategory}
+        disabled={selectedCategory === categoryKeys[categoryKeys.length - 1]}
+      >
+        →
+      </button>
     </div>
   );
 }
