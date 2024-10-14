@@ -116,7 +116,7 @@ export default function HomePage() {
   // Function to render items based on the selected category
   const renderItems = () => {
     return categories[selectedCategory].map((item: MenuItem) => (
-      <div key={item.id} className="menu-item">
+      <div key={item.id} className="menu-item dark:bg-black">
         <img src={item.image} alt={item.name} />
         <h3>{item.name}</h3>
         <p>{item.description}</p>
@@ -131,11 +131,11 @@ export default function HomePage() {
   };
 
   return (
-    <div className="menu">
-      <h1 className="text-4xl font-bold mb-8 text-amber-600 text-center">
+    <div className="menu dark:bg-black">
+      <h1 className="text-4xl font-bold mb-8 text-amber-600 text-center ">
         Our Menu
       </h1>
-      <div className="tabs">
+      <div className="tabs ">
         {categoryKeys.map((category) => (
           <button
             key={category}
@@ -147,7 +147,7 @@ export default function HomePage() {
         ))}
       </div>
 
-      <div className="items" key={selectedCategory}>
+      <div className="items " key={selectedCategory}>
         {renderItems()}
       </div>
       <button
