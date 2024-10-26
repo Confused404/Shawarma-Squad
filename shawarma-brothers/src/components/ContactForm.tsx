@@ -4,25 +4,10 @@ import { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
-import { Button } from "@/components/ui/button";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { MessageBox } from "@/components/MessageBox"; // Corrected import
 
 const formSchema = z.object({
   name: z.string().min(2, {
     message: "Name must be at least 2 characters.",
-  }),
-  phone: z.string().min(10, {
-    message: "Phone number must be at least 10 digits.",
   }),
   email: z.string().email({
     message: "Please enter a valid email address.",
@@ -33,136 +18,127 @@ const formSchema = z.object({
 });
 
 export function ContactForm() {
-  const [messageBox, setMessageBox] = useState<{
-    type: "success" | "error" | "warning" | "info";
-    title: string;
-    message: string;
-  } | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState<string | null>(null);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       name: "",
-      phone: "",
       email: "",
       message: "",
     },
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    try {
-      const response = await fetch(
-        `https://formspree.io/f/${process.env.NEXT_PUBLIC_FORM_ID}`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(values),
-        }
-      );
+    setIsSubmitting(true);
+    setSubmitMessage(null);
 
-      if (response.ok) {
-        setMessageBox({
-          type: "success",
-          title: "Contact Submitted",
-          message: "Your contact information has been successfully submitted.",
-        });
-        form.reset();
-      } else {
-        console.log("Form ID:", process.env.NEXT_PUBLIC_FORM_ID);
-        setMessageBox({
-          type: "error",
-          title: "Submission Failed",
-          message:
-            "There was an error submitting your contact information. Please try again.",
-        });
-      }
+    try {
+      // Replace with your actual form submission logic
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      console.log(values);
+      setSubmitMessage(
+        "Thank you for your message. We'll get back to you soon!"
+      );
+      form.reset();
     } catch (error) {
-      console.log(error);
-      setMessageBox({
-        type: "error",
-        title: "Submission Failed",
-        message:
-          "There was an error submitting your contact information. Please try again.",
-      });
+      setSubmitMessage(
+        "There was an error submitting your message. Please try again."
+      );
+    } finally {
+      setIsSubmitting(false);
     }
   }
 
   return (
-    <div>
-      {messageBox && (
-        <MessageBox // Corrected usage
-          type={messageBox.type}
-          title={messageBox.title}
-          message={messageBox.message}
-          duration={5000}
-          onClose={() => setMessageBox(null)}
-        />
-      )}
-      <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-          <FormField
-            control={form.control}
-            name="name"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Name</FormLabel>
-                <FormControl>
-                  <Input placeholder="Your name" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
+    <section className="bg-amber-50 py-12">
+      <div className="container mx-auto px-4">
+        <h2 className="text-3xl md:text-4xl font-bold text-amber-800 mb-6 text-center">
+          Contact Us
+        </h2>
+        <form
+          onSubmit={form.handleSubmit(onSubmit)}
+          className="max-w-md mx-auto space-y-6"
+        >
+          <div>
+            <label
+              htmlFor="name"
+              className="block text-amber-800 font-semibold mb-2"
+            >
+              Name
+            </label>
+            <input
+              {...form.register("name")}
+              id="name"
+              className="w-full px-4 py-2 rounded-md border border-amber-300 focus:outline-none focus:ring-2 focus:ring-amber-500"
+              placeholder="Your name"
+            />
+            {form.formState.errors.name && (
+              <p className="mt-1 text-red-600">
+                {form.formState.errors.name.message}
+              </p>
             )}
-          />
-          <FormField
-            control={form.control}
-            name="phone"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Phone</FormLabel>
-                <FormControl>
-                  <Input placeholder="Your phone number" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
+          </div>
+          <div>
+            <label
+              htmlFor="email"
+              className="block text-amber-800 font-semibold mb-2"
+            >
+              Email
+            </label>
+            <input
+              {...form.register("email")}
+              id="email"
+              type="email"
+              className="w-full px-4 py-2 rounded-md border border-amber-300 focus:outline-none focus:ring-2 focus:ring-amber-500"
+              placeholder="Your email"
+            />
+            {form.formState.errors.email && (
+              <p className="mt-1 text-red-600">
+                {form.formState.errors.email.message}
+              </p>
             )}
-          />
-          <FormField
-            control={form.control}
-            name="email"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Email</FormLabel>
-                <FormControl>
-                  <Input placeholder="Your email address" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
+          </div>
+          <div>
+            <label
+              htmlFor="message"
+              className="block text-amber-800 font-semibold mb-2"
+            >
+              Message
+            </label>
+            <textarea
+              {...form.register("message")}
+              id="message"
+              className="w-full px-4 py-2 rounded-md border border-amber-300 focus:outline-none focus:ring-2 focus:ring-amber-500 h-32 resize-none"
+              placeholder="Your message"
+            ></textarea>
+            {form.formState.errors.message && (
+              <p className="mt-1 text-red-600">
+                {form.formState.errors.message.message}
+              </p>
             )}
-          />
-          <FormField
-            control={form.control}
-            name="message"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Message</FormLabel>
-                <FormControl>
-                  <Textarea
-                    placeholder="Your message"
-                    className="min-h-[100px]"
-                    {...field}
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <Button type="submit" className="bg-amber-600 hover:bg-amber-700">
-            Submit
-          </Button>
+          </div>
+          <button
+            type="submit"
+            disabled={isSubmitting}
+            className="w-full bg-amber-500 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-amber-600 transition duration-300 disabled:opacity-50"
+          >
+            {isSubmitting ? "Sending..." : "Send Message"}
+          </button>
+          {submitMessage && (
+            <p
+              className={`mt-4 text-center ${
+                submitMessage.includes("error")
+                  ? "text-red-600"
+                  : "text-green-600"
+              }`}
+            >
+              {submitMessage}
+            </p>
+          )}
         </form>
-      </Form>
-    </div>
+      </div>
+    </section>
   );
 }
