@@ -21,6 +21,13 @@ export default function Home() {
         <MenuGrid />
       </section>
 
+      {/* About Section */}
+      <section
+        id="about"
+        className="px-4 md:px-8 py-12 bg-amber-50  dark:bg-black"
+      >
+        <About />
+      </section>
       {/* Reviews Section */}
       <section
         id="reviews"
@@ -29,32 +36,17 @@ export default function Home() {
         <Reviews />
       </section>
 
+      {/* Location Section */}
+      <section id="location" className="px-4 md:px-8 py-12">
+        <Location />
+      </section>
+
       {/* Gift Cards Section */}
       <section id="gift-cards" className="px-4 md:px-8">
         <GiftCardPromo />
       </section>
-
-      {/* About Section */}
-      <section
-        id="about"
-        className="px-4 md:px-8 py-12 bg-amber-50  dark:bg-black"
-      >
-        <About />
-      </section>
-
-      {/* Location Section */}
-      <section id="location" className="px-4 md:px-8 py-12">
-        <h2 className="text-3xl font-bold text-amber-800 text-center mb-8">
-          Find Us
-        </h2>
-        <Location />
-      </section>
-
       {/* Contact Section */}
       <section id="contact-us" className="px-4 md:px-8 py-12 gh">
-        <h2 className="text-3xl font-bold text-amber-800 text-center mb-8">
-          Contact Us
-        </h2>
         <div className="max-w-2xl mx-auto">
           <ContactForm />
         </div>

@@ -19,14 +19,6 @@ export default function GiftCardPromo() {
               used for dine-in, takeout, or online orders. Available in various
               denominations to suit your needs.
             </p>
-            <Button className="bg-amber-700 hover:bg-amber-800 text-white px-8 py-3 rounded-full text-lg font-semibold">
-              BUY NOW
-            </Button>
-            <p className="text-sm text-amber-700 mt-4">
-              <a href="#" className="underline">
-                Shawarma Delight Gift Card Terms
-              </a>
-            </p>
           </div>
           <div className="md:w-1/2 relative">
             <div className="w-full h-[300px] md:h-[400px] relative">
