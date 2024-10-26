@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import "../app/Menu.css";
+import "../app/menu.css";
 
 // Define a type for menu items
 interface MenuItem {
