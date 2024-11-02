@@ -3,17 +3,17 @@ import { Button } from "@/components/ui/button";
 
 export default function GiftCardPromo() {
   return (
-    <div className="bg-amber-50 dark:bg-black py-16">
+    <div className="bg-customGrey dark:bg-black py-16">
       <div className="container mx-auto px-[15px] md:px-[60px]">
         <div className="flex flex-col md:flex-row items-center justify-between md:space-x-12">
           <div className="md:w-1/2 mb-12 md:mb-0">
-            <h2 className="text-amber-600 text-xl font-semibold mb-2">
+            <h2 className="text-customRed text-xl font-semibold mb-2">
               SHAWARMA DELIGHT GIFT CARDS
             </h2>
-            <h3 className="text-4xl md:text-5xl font-bold text-amber-900 mb-4">
+            <h3 className="text-4xl md:text-5xl font-bold text-customDRed mb-4">
               THE PERFECT GIFT FOR SHAWARMA LOVERS
             </h3>
-            <p className="text-amber-800 mb-6">
+            <p className="text-black mb-6">
               Give the gift of delicious, authentic shawarma to your friends and
               family. Our gift cards are perfect for any occasion and can be
               used for dine-in, takeout, or online orders. Available in various

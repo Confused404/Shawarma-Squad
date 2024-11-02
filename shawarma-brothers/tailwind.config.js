@@ -53,6 +53,7 @@ module.exports = {
         customRed: "#B63021",
         customDRed: "#7e0b0b",
         customGrey: "#FBFBFB",
+        customDGrey: "#CDCDCD",
       },
       borderRadius: {
         lg: "var(--radius)",
