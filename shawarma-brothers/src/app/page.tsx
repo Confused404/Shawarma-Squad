@@ -24,14 +24,14 @@ export default function Home() {
       {/* About Section */}
       <section
         id="about"
-        className="px-4 md:px-8 py-12 bg-amber-50  dark:bg-black"
+        className="px-4 md:px-8 py-12 bg-white  dark:bg-black"
       >
         <About />
       </section>
       {/* Reviews Section */}
       <section
         id="reviews"
-        className="px-4 md:px-8 py-12 bg-amber-100  dark:bg-black"
+        className="px-4 md:px-8 py-12 bg-white  dark:bg-black"
       >
         <Reviews />
       </section>

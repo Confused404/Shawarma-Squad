@@ -6,8 +6,7 @@ import Image from "next/image";
 
 
 const images = [
-  "/src/pictures/shawarmaBrothersBuilding.jpg",
-  "/src/pictures/sandwitch.jpg",
+  "/images/menu/storeFront.jpg"
 ];
 
 export default function Hero() {
@@ -23,13 +22,12 @@ export default function Hero() {
 
   return (
     <section className="relative h-[600px] overflow-hidden">
-    {images.map((image, index) => (
-      <div
-        key={image}
-        className={`absolute inset-0 transition-opacity duration-1000 ${
-          index === currentImageIndex ? "opacity-100" : "opacity-0"
-        }`}
-      >
+      {images.map((image, index) => (
+        <div
+          key={image}
+          className={`absolute inset-0 transition-opacity duration-1000 ${index === currentImageIndex ? "opacity-100" : "opacity-0"
+            }`}
+        >
           <Image
             src={image}
             alt={`Delicious Shawarma ${index + 1}`}
@@ -48,7 +46,7 @@ export default function Hero() {
             Falafel ● Gyro ● Mid-East Rotisserie
           </p>
           <a href="https://www.doordash.com/store/shawarma-brothers-cuyahoga-falls-25010130/">
-            <button className="bg-amber-500 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-amber-600 transition duration-300">
+            <button className="bg-customRed text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-customDRed transition duration-300">
               Order Now
             </button>
           </a>

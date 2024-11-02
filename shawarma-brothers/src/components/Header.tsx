@@ -19,29 +19,27 @@ export default function Header() {
   ];
 
   return (
-    <header className="bg-white dark:bg-black shadow-md fixed top-0 left-0 w-full z-50 h-14">
-      <div className="container mx-auto px-4 py-8 flex justify-between items-center px-[15px] md:px-[60px]">
+    <header className="bg-white dark:bg-black shadow-md fixed top-0 left-0 w-full z-50 h-24 flex justify-center items-center">
+      <div className="container mx-auto px-4 flex justify-between items-center px-[15px] md:px-[60px]">
         <Link href="/" className="flex items-center space-x-2">
-          <span className="text-3xl font-bold text-amber-800">
+          <span className="text-3xl font-bold text-customRed">
             Shawarma Brothers
           </span>
-
         </Link>
 
-        {/* Desktop Navigation */}
+        {/* Centered Desktop Navigation */}
         <nav className="hidden md:flex space-x-8" aria-label="Main Navigation">
           {navItems.map((item) => (
             <Link
               key={item.name}
               href={item.href}
-              className="text-xl text-customRed hover:text-amber-700 transition duration-150 ease-in-out"
+              className="text-xl text-customRed hover:text-customDRed transition duration-150 ease-in-out py-1 pt-2" // Added pt-2 for 8px top padding
             >
               {item.name}
             </Link>
           ))}
-          <ModeToggle></ModeToggle>
+          <ModeToggle />
         </nav>
-
 
         {/* Mobile Menu Button */}
         <button onClick={toggleMenu} className="md:hidden text-amber-900">
@@ -68,7 +66,7 @@ export default function Header() {
                 {item.name}
               </Link>
             ))}
-            <ModeToggle></ModeToggle>
+            <ModeToggle />
           </nav>
         </div>
       )}

@@ -51,6 +51,8 @@ module.exports = {
         },
         // Custom color
         customRed: "#B63021",
+        customDRed: "#7e0b0b",
+        customGrey: "#FBFBFB",
       },
       borderRadius: {
         lg: "var(--radius)",

@@ -1,162 +1,41 @@
-"use client";
-import React, { useState } from "react";
-import "../app/menu.css";
+import Image from 'next/image';
 
-// Define a type for menu items
-interface MenuItem {
-  id: number;
-  name: string;
-  price: number;
-  image: string;
-  description: string;
-}
+const menuItems = [
+  { name: 'Falafel Bowl', image: '/images/menu/falafelBowl.jpg' },
+  { name: 'Falafel Bowl 2', image: '/images/menu/falafelBowl2.jpg' },
+  { name: 'Food Assortment', image: '/images/menu/foodAssortment.jpg' },
+  { name: 'Gyro', image: '/images/menu/gyro.jpg' },
+  { name: 'Gyro 2', image: '/images/menu/gyro2.jpg' },
+  { name: 'Hummus', image: '/images/menu/hummus.jpg' },
+  { name: 'Orzo', image: '/images/menu/orzo.jpg' },
+  { name: 'Rice', image: '/images/menu/rice.jpg' },
+  { name: 'Salad', image: '/images/menu/salad.jpg' },
+  { name: 'Sandwich', image: '/images/menu/sandwitch.jpg' },
+  { name: 'Shawarma', image: '/images/menu/shawerma.png' },
+  { name: 'Tabouleh', image: '/images/menu/tabouleh.jpg' },
+];
 
-// Define a type for the categories
-interface Categories {
-  Protein: MenuItem[];
-  Cover: MenuItem[];
-  Sauce: MenuItem[];
-  Toppings: MenuItem[];
-}
-
-// Define a union type for the category keys
-type CategoryKey = keyof Categories;
-
-export default function HomePage() {
-  // Categories and their items
-  const categories = {
-    Protein: [
-      {
-        id: 1,
-        name: "Shawerma",
-        price: 19.4,
-        image: "/images/menu/shawerma.png",
-        description: "Enjoy the tasty shawerma that is made with love.",
-      },
-      {
-        id: 2,
-        name: "Falafel",
-        price: 12.9,
-        image: "/images/menu/shawerma.png",
-        description: "Enjoy the tasty falafel that is made with love.",
-      },
-      {
-        id: 3,
-        name: "Gyro",
-        price: 16,
-        image: "/images/menu/shawerma.png",
-        description: "Enjoy the tasty Gyro for special time.",
-      },
-    ],
-    Cover: [
-      {
-        id: 1,
-        name: "Shawerma",
-        price: 19.4,
-        image: "/images/menu/shawerma.png",
-        description: "Enjoy the tasty shawerma that is made with love.",
-      },
-      {
-        id: 2,
-        name: "Falafel",
-        price: 12.9,
-        image: "/images/menu/shawerma.png",
-        description: "Enjoy the tasty falafel that is made with love.",
-      },
-    ],
-    Sauce: [
-      {
-        id: 3,
-        name: "Gyro",
-        price: 16,
-        image: "/images/menu/shawerma.png",
-        description: "Enjoy the tasty Gyro for special time.",
-      },
-      {
-        id: 3,
-        name: "Gyro",
-        price: 16,
-        image: "/images/menu/shawerma.png",
-        description: "Enjoy the tasty Gyro for special time.",
-      },
-    ],
-    Toppings: [
-      {
-        id: 2,
-        name: "Falafel",
-        price: 12.9,
-        image: "/images/menu/shawerma.png",
-        description: "Enjoy the tasty falafel that is made with love.",
-      },
-      {
-        id: 2,
-        name: "Falafel",
-        price: 12.9,
-        image: "/images/menu/shawerma.png",
-        description: "Enjoy the tasty falafel that is made with love.",
-      },
-    ],
-  };
-
-  // State to track the selected category
-  const [selectedCategory, setSelectedCategory] =
-    useState<CategoryKey>("Protein");
-
-  // Array of category keys for easy navigation
-  const categoryKeys = Object.keys(categories) as CategoryKey[];
-
-  // Function to go to the next category
-  const goToNextCategory = () => {
-    const currentIndex = categoryKeys.indexOf(selectedCategory);
-    if (currentIndex < categoryKeys.length - 1) {
-      setSelectedCategory(categoryKeys[currentIndex + 1]);
-    }
-  };
-
-  // Function to render items based on the selected category
-  const renderItems = () => {
-    return categories[selectedCategory].map((item: MenuItem) => (
-      <div key={item.id} className="menu-item dark:bg-black">
-        <img src={item.image} alt={item.name} />
-        <h3>{item.name}</h3>
-        <p>{item.description}</p>
-        <div className="price-button-container">
-          <span>${item.price}</span>
-          <button className="button-28" onClick={goToNextCategory}>
-            Select
-          </button>
-        </div>
-      </div>
-    ));
-  };
-
+export default function MenuGrid() {
   return (
-    <div className="menu dark:bg-black">
-      <h1 className="text-4xl font-bold mb-8 text-amber-600 text-center ">
-        Our Menu
-      </h1>
-      <div className="tabs ">
-        {categoryKeys.map((category) => (
-          <button
-            key={category}
-            className={`tab ${selectedCategory === category ? "active" : ""}`}
-            onClick={() => setSelectedCategory(category)}
-          >
-            {category}
-          </button>
+    <div className="container mx-auto px-4 py-16">
+      <h2 className="text-customRed text-3xl font-bold text-center mb-12">Our Menu</h2>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {menuItems.map((item) => (
+          <div key={item.name} className="flex flex-col items-center">
+            <div className="relative w-full aspect-square mb-4">
+              <Image
+                src={item.image}
+                alt={item.name}
+                fill
+                style={{ objectFit: "cover" }}
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                className="rounded-lg"
+              />
+            </div>
+            <h3 className="text-xl font-semibold text-center">{item.name}</h3>
+          </div>
         ))}
       </div>
-
-      <div className="items " key={selectedCategory}>
-        {renderItems()}
-      </div>
-      <button
-        className="next-button button-28"
-        onClick={goToNextCategory}
-        disabled={selectedCategory === categoryKeys[categoryKeys.length - 1]}
-      >
-        →
-      </button>
     </div>
   );
 }
