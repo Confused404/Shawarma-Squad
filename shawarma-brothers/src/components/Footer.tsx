@@ -13,25 +13,25 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-amber-100 dark:bg-black border-t border-amber-200">
+    <footer className="bg-customRed dark:bg-black border-t border-customRed pt-12 pb-6">
       <div className="container mx-auto px-4 py-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-center items-start">
           <div className="space-y-4">
-            <h3 className="text-xl font-semibold text-amber-800">
+            <h3 className="text-xl font-semibold text-white">
               Shawarma Brothers
             </h3>
-            <p className="text-amber-700">
+            <p className="text-white">
               "The Heart of Shawarma, Wrapped for You."
             </p>
           </div>
-          <div className="space-y-4">
-            <h4 className="text-lg font-medium text-amber-800">Quick Links</h4>
+          <div className="space-y-4 pl-16"> {/* Added padding-left to adjust position */}
+            <h4 className="text-lg font-medium text-white">Quick Links</h4>
             <ul className="space-y-2">
               {footerItems.map((item) => (
                 <li key={item.name}>
                   <Link
                     href={item.href}
-                    className="text-amber-700 hover:text-amber-600 transition duration-150 ease-in-out"
+                    className="text-white hover:text-black transition duration-150 ease-in-out"
                   >
                     {item.name}
                   </Link>
@@ -40,20 +40,18 @@ export default function Footer() {
             </ul>
           </div>
           <div className="space-y-4">
-            <h4 className="text-lg font-medium text-amber-800">
-              Connect With Us
-            </h4>
+            <h4 className="text-lg font-medium text-white">Connect With Us</h4>
             <div className="flex space-x-4">
               <Link
                 href="https://www.facebook.com/shawarmabrothersportagetrailcrossing/"
-                className="text-amber-700 hover:text-amber-600 transition duration-150 ease-in-out"
+                className="text-white hover:text-black transition duration-150 ease-in-out"
               >
                 <Facebook size={24} />
                 <span className="sr-only">Facebook</span>
               </Link>
               <Link
                 href="https://www.instagram.com/explore/locations/551667251694193/shawarma-brothers/"
-                className="text-amber-700 hover:text-amber-600 transition duration-150 ease-in-out"
+                className="text-white hover:text-black transition duration-150 ease-in-out"
               >
                 <Instagram size={24} />
                 <span className="sr-only">Instagram</span>
@@ -61,7 +59,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className="mt-8 pt-4 border-t border-amber-200 text-center text-amber-700">
+        <div className="mt-8 pt-4 border-t border-white text-center text-white">
           <p>&copy; {currentYear} Shawarma Brothers. All rights reserved.</p>
         </div>
       </div>
