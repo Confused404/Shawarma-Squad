@@ -6,15 +6,11 @@ import { useForm } from "react-hook-form";
 import * as z from "zod";
 
 const formSchema = z.object({
-  name: z.string().min(2, {
-    message: "Name must be at least 2 characters.",
-  }),
-  email: z.string().email({
-    message: "Please enter a valid email address.",
-  }),
-  message: z.string().min(10, {
-    message: "Message must be at least 10 characters.",
-  }),
+  name: z.string().min(2, { message: "Name must be at least 2 characters." }),
+  email: z.string().email({ message: "Please enter a valid email address." }),
+  message: z
+    .string()
+    .min(10, { message: "Message must be at least 10 characters." }),
 });
 
 export function ContactForm() {
@@ -23,11 +19,7 @@ export function ContactForm() {
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
-    defaultValues: {
-      name: "",
-      email: "",
-      message: "",
-    },
+    defaultValues: { name: "", email: "", message: "" },
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
@@ -35,14 +27,24 @@ export function ContactForm() {
     setSubmitMessage(null);
 
     try {
-      // Replace with your actual form submission logic
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      console.log(values);
-      setSubmitMessage(
-        "Thank you for your message. We'll get back to you soon!"
-      );
-      form.reset();
+      const response = await fetch("/api/sendEmail", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(values),
+      });
+
+      if (response.ok) {
+        setSubmitMessage(
+          "Thank you for your message. We'll get back to you soon!"
+        );
+        form.reset();
+      } else {
+        setSubmitMessage(
+          "There was an error submitting your message. Please try again."
+        );
+      }
     } catch (error) {
+      console.error("Error submitting form:", error);
       setSubmitMessage(
         "There was an error submitting your message. Please try again."
       );
@@ -128,10 +130,11 @@ export function ContactForm() {
           </button>
           {submitMessage && (
             <p
-              className={`mt-4 text-center ${submitMessage.includes("error")
+              className={`mt-4 text-center ${
+                submitMessage.includes("error")
                   ? "text-red-600"
                   : "text-green-600"
-                }`}
+              }`}
             >
               {submitMessage}
             </p>
