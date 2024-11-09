@@ -21,10 +21,12 @@ export default function Footer() {
               Shawarma Brothers
             </h3>
             <p className="text-white">
-              "The Heart of Shawarma, Wrapped for You."
+              &quot;The Heart of Shawarma, Wrapped for You.&quot;
             </p>
           </div>
-          <div className="space-y-4 pl-16"> {/* Added padding-left to adjust position */}
+          <div className="space-y-4 pl-16">
+            {" "}
+            {/* Added padding-left to adjust position */}
             <h4 className="text-lg font-medium text-white">Quick Links</h4>
             <ul className="space-y-2">
               {footerItems.map((item) => (

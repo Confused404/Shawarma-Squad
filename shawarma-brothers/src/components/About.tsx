@@ -3,13 +3,11 @@
 import Image from "next/image";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import twoPeopleSmiling from "../../public/images/menu/twopeopleSmiling.jpg";
 
 export function About() {
   return (
     <div className="bg-white dark:bg-black py-12">
-      {/* Keep the original background and top/bottom padding */}
-      <div className="container mx-auto px-4"> {/* Matching the padding from MenuGrid */}
+      <div className="container mx-auto px-4">
         <h1 className="text-4xl font-bold mb-8 text-customRed">
           About Shawarma Delight
         </h1>
@@ -39,7 +37,7 @@ export function About() {
           </div>
           <div className="relative h-[300px] md:h-auto">
             <Image
-              src={twoPeopleSmiling}
+              src="/images/menu/twopeopleSmiling.jpg" // Use path relative to the public folder
               alt="Shawarma preparation"
               fill
               style={{ objectFit: "cover" }}
@@ -55,13 +53,23 @@ export function About() {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="mb-4">At Shawarma Delight, we're committed to:</p>
+              <p className="mb-4">
+                At Shawarma Delight, we&#39;re committed to:
+              </p>
+
               <ul className="list-disc list-inside space-y-2">
                 <li>Using only the freshest, highest-quality ingredients</li>
                 <li>Preparing our meats and vegetables daily</li>
-                <li>Offering a variety of options for different dietary needs</li>
-                <li>Providing a warm and welcoming atmosphere for our guests</li>
-                <li>Continuously improving our recipes and service based on customer feedback</li>
+                <li>
+                  Offering a variety of options for different dietary needs
+                </li>
+                <li>
+                  Providing a warm and welcoming atmosphere for our guests
+                </li>
+                <li>
+                  Continuously improving our recipes and service based on
+                  customer feedback
+                </li>
               </ul>
             </CardContent>
           </Card>
